@@ -1,18 +1,11 @@
-from flask import render_template
+from flask import render_template, flash, redirect, url_for
 from app import app
+from app.forms import LoginForm
 
-@app.route('/')
-@app.route('/index')
-def index():
-    user = {'username': "Ayobami"}
-    posts = [
-        {
-            'author': {"username": "John"},
-            'body': 'Beautiful day in Nigeria'
-        },
-        {
-            'author': {'username': 'Esther'},
-            'body': 'The Funmilayo Ransome kuti movie is so great!'
-        }
-    ]
-    return render_template('index.html', title='home', user=user, posts=posts)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form vvalidate_on_submit():
+
+        return redirect(url_for('index'))
